@@ -23,13 +23,6 @@ requestAnimationFrame(raf)
 
 // 2. GSAP Animations
 
-// Hero Ken Burns Effect
-gsap.to('.hero-video', {
-  scale: 1, // scales down from 1.1 (CSS) to 1 over scroll/time
-  duration: 10,
-  ease: 'power1.out',
-})
-
 // Hero Fade-ups (Stagger)
 gsap.to('.hero .fade-up', {
   y: 0,
