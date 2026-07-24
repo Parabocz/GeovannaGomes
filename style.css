@@ -158,7 +158,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-content .subheadline {
   font-size: 1.125rem;
   margin-bottom: 2.5rem;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
   max-width: 650px;
   text-wrap: balance;
 }
