@@ -56,6 +56,29 @@ fadeElements.forEach(el => {
   })
 })
 
+// Counter Animations for Trust Banner
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+  const target = parseFloat(counter.getAttribute('data-target'));
+  const decimals = parseInt(counter.getAttribute('data-decimals') || '0');
+  
+  let obj = { val: 0 };
+  
+  gsap.to(obj, {
+    val: target,
+    duration: 2.5,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.trust-banner',
+      start: 'top 85%',
+      toggleActions: 'play none none none'
+    },
+    onUpdate: () => {
+      counter.innerHTML = obj.val.toFixed(decimals);
+    }
+  });
+});
+
 // 3. Swiper Carousel (Mobile only logic)
 let swiperInstance = null;
 
