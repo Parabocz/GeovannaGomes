@@ -180,7 +180,12 @@ h1, h2, h3, h4, h5, h6 {
 ----------------------------- */
 .services {
   padding: var(--spacing-section) 0;
-  background-color: var(--color-offwhite);
+  background-color: var(--color-navy); /* Dark background for impact */
+  color: var(--color-white);
+}
+
+.services .section-title {
+  color: var(--color-white);
 }
 
 .services-grid {
@@ -190,27 +195,62 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .service-card {
-  background: var(--color-white);
-  padding: 3rem 2rem;
-  border-top: 4px solid var(--color-cerulean);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  background: transparent;
+  padding: 4rem 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   height: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
 }
 
 .service-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  transform: translateY(-8px);
+  border-color: var(--color-cerulean);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-number {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  color: var(--color-cerulean);
+  margin-bottom: 1.5rem;
+  line-height: 1;
+  font-style: italic;
 }
 
 .service-card h3 {
+  position: relative;
+  z-index: 1;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  color: var(--color-white);
 }
 
 .service-card p {
+  position: relative;
+  z-index: 1;
   font-size: 1rem;
-  color: var(--color-text-body);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
 }
 
 /* Swiper overrides for mobile */
